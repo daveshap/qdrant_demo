@@ -10,3 +10,6 @@ curl -L -X POST "http://localhost:6333/collections/test_collection/points/search
 
 
 curl -L -X POST "http://localhost:6333/collections/test_collection/points/search" -H "Content-Type: application/json" --data-raw "{ \"filter\": { \"should\": [ { \"key\": \"city\", \"match\": { \"value\": \"London\" } } ] }, \"vector\": [0.2, 0.1, 0.9, 0.7], \"top\": 3 }"
+
+
+docker run -p 6333:6333 -v ./qdrant_storage:/qdrant/storage qdrant/qdrant
